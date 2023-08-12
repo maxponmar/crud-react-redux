@@ -1,4 +1,4 @@
-import { UserId, deleteUserById } from "../store/users/slice";
+import { User, UserId, addNewUser, deleteUserById } from "../store/users/slice";
 import { useAppDispatch } from "./store";
 
 export const useUserActions = () => {
@@ -8,5 +8,9 @@ export const useUserActions = () => {
 		dispatch(deleteUserById(id));
 	};
 
-	return { removeUser };
+	const addUser = (user: User) => {
+		dispatch(addNewUser(user));
+	};
+
+	return { removeUser, addUser };
 };
